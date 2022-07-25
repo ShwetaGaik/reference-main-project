@@ -97,6 +97,7 @@ export class AuthComponent  {
     this.token=(this.getDecodedAccessToken(apires.token));
     console.log(this.token);
     GlobalConstants.usertypeid=this.token.UserTypeId;
+    localStorage.setItem('role',this.token.UserTypeId)
     this.des=GlobalConstants.usertypeid
     GlobalConstants.username=this.token.Name
     GlobalConstants.userid=this.token.UserId

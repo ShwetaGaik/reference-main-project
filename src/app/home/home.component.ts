@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalConstants } from '../common/global-constants';
 
 @Component({
-  selector: 'app-dummy',
-  templateUrl: './dummy.component.html',
-  styleUrls: ['./dummy.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class DummyComponent implements OnInit {
- 
+export class HomeComponent implements OnInit {
+
   constructor() { }
 
   ngOnInit(): any {
@@ -16,6 +16,5 @@ export class DummyComponent implements OnInit {
 
 
   }
- 
 
 }

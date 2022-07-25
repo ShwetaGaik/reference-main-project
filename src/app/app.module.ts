@@ -5,7 +5,7 @@ import { AppRoutingModule,routingcomp} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DemoPipe } from './pipes/demo.pipe';
 import { EmployeeloginComponent } from './employeelogin/employeelogin.component';
-import { DummyComponent } from './dummy/dummy.component';
+// import { DummyComponent } from './dummy/dummy.component';
 import { RequestcreateComponent } from './requestcreate/requestcreate.component';
 import { AuthComponent } from './auth/auth.component';
 import { DetailsComponent } from './details/details.component';
@@ -18,13 +18,14 @@ import { RegisterComponent } from './register/register.component';
 import { ModifyuserComponent } from './modifyuser/modifyuser.component';
 import { EditadminComponent } from './editadmin/editadmin.component';
 import { DeleteadminComponent } from './deleteadmin/deleteadmin.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoPipe,
     routingcomp,
-    DummyComponent,
+    // DummyComponent,
     RequestcreateComponent,
     AuthComponent,
     DetailsComponent,
@@ -37,6 +38,7 @@ import { DeleteadminComponent } from './deleteadmin/deleteadmin.component';
     ModifyuserComponent,
     EditadminComponent,
     DeleteadminComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
