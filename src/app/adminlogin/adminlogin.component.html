@@ -1,8 +1,11 @@
 <p>adminlogin works!</p>
+<h1>Welcome  {{username}}</h1>
+
+
 <button (click)="toggledisplay()">Travel Request</button>
 <button (click)="adduser()">Add User</button>
 <button (click)="modifyuser()">Modify User</button>
-<button routerLink="/"  >Logout</button>
+<button (click)="logout()">Logout</button>
 <table  *ngIf="display">
     <thead>
       <tr>

@@ -11,6 +11,7 @@ export class AdminloginComponent implements OnInit {
   members:any
   members1:any
   display=GlobalConstants.display
+  username=GlobalConstants.username
 
 
 toggledisplay(){
@@ -97,7 +98,10 @@ deletechk(element:any){
   // console.log(this.members1)
 }
 
-  
+logout(){
+  localStorage.clear();
+  this.router.navigateByUrl('/')
+}
 ngOnInit(): void{
   this.display=GlobalConstants.display
   console.log(this.display);
@@ -131,3 +135,4 @@ ngOnInit(): void{
   // }
 
 
+ 

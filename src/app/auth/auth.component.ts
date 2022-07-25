@@ -92,6 +92,7 @@ export class AuthComponent  {
     })
     let apires;
     apires=await res1.json()
+    localStorage.setItem('token',apires.token)
     // this.getDecodedAccessToken(apires.token)
     this.token=(this.getDecodedAccessToken(apires.token));
     console.log(this.token);

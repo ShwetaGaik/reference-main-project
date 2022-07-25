@@ -13,23 +13,24 @@ import { ManagerloginComponent } from './managerlogin/managerlogin.component';
 import { ModifyuserComponent } from './modifyuser/modifyuser.component';
 import { RegisterComponent } from './register/register.component';
 import { RequestcreateComponent } from './requestcreate/requestcreate.component';
+import { AuthguardGuard } from './shared/authguard.guard';
 import { TravelagentloginComponent } from './travelagentlogin/travelagentlogin.component';
 
 const routes: Routes = [
-  {path:'login',component:EmployeeloginComponent},
+  {path:'login',component:EmployeeloginComponent,canActivate:[AuthguardGuard]},
   {path:'',component:DummyComponent},
-  {path:'Createreq',component:RequestcreateComponent},
+  {path:'Createreq',component:RequestcreateComponent,canActivate:[AuthguardGuard]},
   {path:'Auth',component:AuthComponent},
-  {path:'Details',component:DetailsComponent},
-  {path:'delete',component:DeleteComponent},
-  {path:'manager',component:ManagerloginComponent},
-  {path:'travelagent',component:TravelagentloginComponent},
-  {path:'edit',component:EditComponent},
-  {path:'admin',component:AdminloginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'modify',component:ModifyuserComponent},
-  {path:'editadmin',component:EditadminComponent},
-  {path:'deleteadmin',component:DeleteadminComponent}
+  {path:'Details',component:DetailsComponent,canActivate:[AuthguardGuard]},
+  {path:'delete',component:DeleteComponent,canActivate:[AuthguardGuard]},
+  {path:'manager',component:ManagerloginComponent,canActivate:[AuthguardGuard]},
+  {path:'travelagent',component:TravelagentloginComponent,canActivate:[AuthguardGuard]},
+  {path:'edit',component:EditComponent,canActivate:[AuthguardGuard]},
+  {path:'admin',component:AdminloginComponent,canActivate:[AuthguardGuard]},
+  {path:'register',component:RegisterComponent,canActivate:[AuthguardGuard]},
+  {path:'modify',component:ModifyuserComponent,canActivate:[AuthguardGuard]},
+  {path:'editadmin',component:EditadminComponent,canActivate:[AuthguardGuard]},
+  {path:'deleteadmin',component:DeleteadminComponent,canActivate:[AuthguardGuard]}
 
   
 ];
