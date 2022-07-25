@@ -12,6 +12,7 @@ import jwt_decode from 'jwt-decode';
 export class AuthComponent  {
   des='';
   token:any
+  message=''
   getDecodedAccessToken(token: string): any {
     try {
       return jwt_decode(token);
@@ -91,11 +92,30 @@ export class AuthComponent  {
       
     })
     let apires;
+    console.log(res1);
+    
+    if(res1.status!=200){
+
+      // alert("wrong id or pass")
+      this.message='Incorrect id or pass'
+      return 
+    }
+
+
+
     apires=await res1.json()
+    console.log(res1);
+
+    
     localStorage.setItem('token',apires.token)
     // this.getDecodedAccessToken(apires.token)
     this.token=(this.getDecodedAccessToken(apires.token));
     console.log(this.token);
+    console.log("zzzzz");
+    console.log(this.token.LoginId);
+
+    
+    
     GlobalConstants.usertypeid=this.token.UserTypeId;
     localStorage.setItem('role',this.token.UserTypeId)
     this.des=GlobalConstants.usertypeid
@@ -109,6 +129,8 @@ export class AuthComponent  {
     console.log(apires);
     if (res1.ok){
       console.log("good");
+      console.log(res1.status);
+      
      
       console.log(GlobalConstants.username);
       if(this.des=="EMPLOYEE"){
@@ -132,12 +154,13 @@ export class AuthComponent  {
       
       
 
-      
-    }else{
-      console.log("bad");
-      this.router.navigateByUrl('/Auth')
-      
     }
+    // }else{
+    //   console.log("bad");
+    //   alert("wrong details")
+    //   this.router.navigateByUrl('/Auth')
+      
+    // }
  
     }
  

@@ -51,7 +51,16 @@ export class DeleteComponent implements OnInit {
  
     }
     if(GlobalConstants.usertypeid=="MANAGER"){
-     GlobalConstants.display=true
+    //  GlobalConstants.display=true
+    if (GlobalConstants.username==this.empdetail.userId){
+      GlobalConstants.display=true
+      GlobalConstants.displaynew=false
+    }
+    else{
+      GlobalConstants.display=false
+      GlobalConstants.displaynew=true
+
+    }
       this.router.navigateByUrl('/manager')
  
     }

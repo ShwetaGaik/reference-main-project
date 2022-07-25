@@ -39,6 +39,10 @@ export class ManagerloginComponent implements OnInit {
   })
   let apires;
   apires=await res.json()
+  console.log("aaaaaa");
+  
+  console.log(apires);
+  
   this.allreq=apires
   console.log("qqqqq");
   console.log( GlobalConstants.usertypeid);
@@ -118,6 +122,8 @@ constructor(private router: Router) {}
   ngOnInit():  any {
     this.member=[]
   this.selfmember=[]
+  this.display=GlobalConstants.display
+  this.displaynew=GlobalConstants.displaynew
     // this.displaynew=false
     // console.log(GlobalConstants.auth)
     // console.log(GlobalConstants.display);

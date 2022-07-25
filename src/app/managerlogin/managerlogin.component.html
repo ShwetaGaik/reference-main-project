@@ -67,6 +67,7 @@
     <table class="table table-trapped" *ngIf="displaynew" >
       <thead>
         <tr>
+          <th>Requested By</th>
           <th>Source</th>
           <th>Destination</th>
           <th>Travel Date</th>
@@ -82,7 +83,7 @@
         
         
        
-        
+        <td>{{q.userId}}</td>
          <td>{{q.source}}</td>
         <td>{{q.destination}}</td>
         <td>{{q.travelDate.split("T")[0]}} {{q.travelDate.split("T")[1]}}</td>

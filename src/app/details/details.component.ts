@@ -41,7 +41,16 @@ console.log(this.usrname);
 
     }
     if(GlobalConstants.usertypeid=="MANAGER"){
-      // GlobalConstants.display=true
+      if (GlobalConstants.username==this.empdetail.userId){
+        GlobalConstants.display=true
+        GlobalConstants.displaynew=false
+      }
+      else{
+        GlobalConstants.display=false
+        GlobalConstants.displaynew=true
+
+      }
+      // GlobalConstants.displaynew=false
       this.router.navigateByUrl('/manager')
 
     }

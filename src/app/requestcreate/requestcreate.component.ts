@@ -1,6 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { GlobalConstants } from '../common/global-constants';
 import { Router } from '@angular/router';
+import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-requestcreate',
   templateUrl: './requestcreate.component.html',
@@ -8,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class RequestcreateComponent {
   usetypeid=GlobalConstants.usertypeid
-  
+  message=''
+  myDate = new Date();
+  cValue = formatDate(this.myDate, 'yyyy-MM-ddThh:mm', 'en-US');
   
 
   // constructor() { }
@@ -51,9 +54,21 @@ export class RequestcreateComponent {
 
     // }
     console.log("aaaaaaa");
+    console.log(this.myDate);
+    
+    console.log(this.cValue);
+    
     
     console.log( this.usetypeid);
+    console.log(data.traveldate);
     
+    if(data.traveldate<this.cValue) {
+      console.log("wrong date");
+      alert("Use a valid Date")
+      this.message='Invalid Date'
+      return 
+      
+     }
 
 
 
@@ -91,6 +106,9 @@ export class RequestcreateComponent {
     
     console.log(this.usetypeid);
     
+    
+   
+    
     if(this.usetypeid=='EMPLOYEE'){
     
     this.router.navigateByUrl('/login')
@@ -121,6 +139,7 @@ export class RequestcreateComponent {
     
 
   }
+  
   ngOnInit(): any {
     GlobalConstants.display=true
   }
