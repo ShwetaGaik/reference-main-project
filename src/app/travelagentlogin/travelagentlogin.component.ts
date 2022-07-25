@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./travelagentlogin.component.css']
 })
 export class TravelagentloginComponent implements OnInit {
-  display=GlobalConstants.display
+  displaynew=GlobalConstants.displaynew
   username=GlobalConstants.username
   member:any=[]
   usrid=GlobalConstants.usertypeid
@@ -58,7 +58,7 @@ editchk(element:any){
 
 }
 ndisp(){
-  this.display=false
+  this.displaynew=false
 }
 
 
@@ -68,7 +68,7 @@ ndisp(){
 trq():any{
   console.log("inside trq");
   
-  this.display=true
+  this.displaynew=true
   console.log(GlobalConstants.username)
   this.chkclick1()
   

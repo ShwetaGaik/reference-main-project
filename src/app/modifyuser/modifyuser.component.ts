@@ -32,6 +32,31 @@ export class ModifyuserComponent implements OnInit {
     this.router.navigateByUrl("/editadmin")
 
   }
+  route(){
+    // console.log(GlobalConstants.usertypeid);
+    
+    // console.log(this.try);
+     if(GlobalConstants.usertypeid=="EMPLOYEE"){
+       this.router.navigateByUrl('/login')
+  
+     }
+     if(GlobalConstants.usertypeid=="MANAGER"){
+      GlobalConstants.display=true
+       this.router.navigateByUrl('/manager')
+  
+     }
+     if(GlobalConstants.usertypeid=="TRAVEL_AGENT"){
+      this.router.navigateByUrl('/travelagent')
+  
+    }
+    if(GlobalConstants.usertypeid=="ADMIN"){
+      this.router.navigateByUrl('/admin')
+  
+    }
+     
+     
+   }
+  
 
   constructor(private router: Router) {}
 

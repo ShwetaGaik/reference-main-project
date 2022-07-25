@@ -61,6 +61,8 @@ export class EditComponent implements OnInit {
   else{
     this.router.navigateByUrl('/edit')
   }
+  GlobalConstants.displaynew=true
+    GlobalConstants.display=false
   
 }
 route(){
@@ -89,6 +91,7 @@ route(){
  constructor(private router: Router) {}
 
   ngOnInit(): void {
+    GlobalConstants.displaynew=true
     GlobalConstants.display=true
     this.empdetail=GlobalConstants.detail
     console.log("in details");

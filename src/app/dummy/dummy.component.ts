@@ -12,6 +12,7 @@ export class DummyComponent implements OnInit {
 
   ngOnInit(): any {
     GlobalConstants.display=false
+    GlobalConstants.displaynew=false
 
 
   }

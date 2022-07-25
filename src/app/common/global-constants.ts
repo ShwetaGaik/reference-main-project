@@ -5,6 +5,9 @@ export class GlobalConstants {
     public static detail:any;
     public static usertypeid : string="";
     public static display:boolean=false;
+    public static displaynew:boolean=false;
+    public static userid : string="";
+    
       
    
 }

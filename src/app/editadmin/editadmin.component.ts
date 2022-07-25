@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./editadmin.component.css']
 })
 export class EditadminComponent implements OnInit {
+  ngSelect:any
   empdetail:any
   role: string[] = [];
   async chkclick(){
@@ -80,8 +81,10 @@ export class EditadminComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    
     GlobalConstants.display=true
     this.empdetail=GlobalConstants.detail
+    this.ngSelect=this.empdetail.userTypeId
     console.log("in details");
     console.log(this.empdetail);
     console.log("qwertyu");

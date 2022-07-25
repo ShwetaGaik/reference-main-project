@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./requestcreate.component.css']
 })
 export class RequestcreateComponent {
+  usetypeid=GlobalConstants.usertypeid
   
   
 
@@ -24,24 +25,35 @@ export class RequestcreateComponent {
     let userid='';
     let userName='';
     let loginid='';
-    let url="https://localhost:8000/api/User/GetAllUsers"
-    let res=await fetch(url)
-    let apires;
-    apires=await res.json()
-    console.log(apires)
-    console.log(GlobalConstants.auth)
-    for (const employee in apires){
-      if (apires[employee].userName==GlobalConstants.auth){
-        console.log("inside if")
-         userid=apires[employee].userId
-        userName=apires[employee].name
-        loginid=apires[employee].loginId
+    
+    // let url="https://localhost:8000/api/User/GetAllUsers"
+    // let res=await fetch(url)
+    // let apires;
+    // apires=await res.json()
+    // // GlobalConstants.detail=apires
+    // console.log("oooooo")
+    // console.log(apires);
+    
+    // // console.log(GlobalConstants.detail.userTypeId);
+    
+    // console.log(GlobalConstants.auth)
+    // for (const employee in apires){
+    //   if (apires[employee].userName==GlobalConstants.auth){
+    //     console.log("inside if")
+    //      userid=apires[employee].userId
+    //     userName=apires[employee].name
+    //     loginid=apires[employee].loginId
+    //     this.usetypeid=apires[employee].userTypeId
         
-      }
+    //   }
       
       
 
-    }
+    // }
+    console.log("aaaaaaa");
+    
+    console.log( this.usetypeid);
+    
 
 
 
@@ -52,11 +64,11 @@ export class RequestcreateComponent {
       "requestId": "",
       "source": data.source,
       "destination": data.destination,
-      "userId": userid,
-      "name":userName,
+      "userId": GlobalConstants.userid,
+      "name":GlobalConstants.username,
       "travelDate": data.traveldate,
       "bookingTime": "2022-07-17T12:02:35.338Z",
-      "loginId": loginid,
+      "loginId": GlobalConstants.auth,
       "travelMode": data.mode,
       "currentStatus": "SUBMITTED"
     }
@@ -72,8 +84,21 @@ export class RequestcreateComponent {
     })
     let apires1;
     apires1=await res1.json()
+    console.log("kkkkkkk");
+    
     console.log(apires1);
+    console.log("check manager");
+    
+    console.log(this.usetypeid);
+    
+    if(this.usetypeid=='EMPLOYEE'){
+    
     this.router.navigateByUrl('/login')
+    }
+    if(this.usetypeid=='MANAGER'){
+    
+      this.router.navigateByUrl('/manager')
+      }
    
 
 

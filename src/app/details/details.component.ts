@@ -17,6 +17,7 @@ constructor(private router: Router) {}
   
   ngOnInit(): void {
     GlobalConstants.display=true
+    GlobalConstants.displaynew=true
     this.empdetail=GlobalConstants.detail
   
     

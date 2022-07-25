@@ -69,6 +69,7 @@ export class DeleteComponent implements OnInit {
 
   ngOnInit(): void {
     GlobalConstants.display=true
+    GlobalConstants.displaynew=true
     this.empdetail=GlobalConstants.detail
     console.log("in details");
     
