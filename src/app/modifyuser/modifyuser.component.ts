@@ -8,7 +8,9 @@ import { GlobalConstants } from '../common/global-constants';
   styleUrls: ['./modifyuser.component.css']
 })
 export class ModifyuserComponent implements OnInit {
+  pageNo:number=1;
   members:any
+  pageOfItems: Array<any>=[] ;
   async Modify(){
     let url="https://localhost:8000/api/User/GetAllUsers"
     let res=await fetch(url)
@@ -56,6 +58,11 @@ export class ModifyuserComponent implements OnInit {
      
      
    }
+   onChangePage(pageOfItems:Array<any>)
+   {
+    this.pageOfItems=pageOfItems;
+   }
+ 
   
 
   constructor(private router: Router) {}

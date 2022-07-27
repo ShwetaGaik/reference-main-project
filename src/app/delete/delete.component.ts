@@ -60,7 +60,7 @@ export class DeleteComponent implements OnInit {
       GlobalConstants.display=false
       GlobalConstants.displaynew=true
 
-    }
+    } 
       this.router.navigateByUrl('/manager')
  
     }

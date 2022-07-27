@@ -1,10 +1,8 @@
-<p>travelagentlogin works!</p>
+<!-- <p>travelagentlogin works!</p>
 
-<h1>Welcome  {{username}}</h1>
-<!-- <button (click)="trq()">TravelRequest</button> -->
+<h1>Welcome  {{username}}</h1> -->
 
-<!-- <button routerLink="/Createreq">Raise Request</button> -->
-
+<!-- 
 <button (click)="ndisp()">Home</button>
   <button (click)="trq()">TravelRequest</button>
   <button routerLink="/">Logout</button>
@@ -40,5 +38,99 @@
      </tr>
      </tbody>
     </table>
+   </div>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script>
+<header>
+  <nav>
+      <div class="logo"><h1 class="">Welcome {{username}}!</h1></div>
+
+
+<div class="menu">
+
+  <a href="#" routerLink="/travelagent" (click)="ndisp()">Home</a>
+  <a href="#" routerLink="/travelagent" (click)="trq()">Travel Request</a>
+  <a href="#" routerLink="/" (click)="logout()">Logout</a>
+  </div>
+  </nav>
+ 
+  
+<div class="container">
+    <table class="table table-trapped" *ngIf="displaynew">
+     <thead>
+       <tr>
+        <th>REQUESTED BY</th>
+         <th>SOURCE</th>
+         <th>DESTINATION</th>
+         <th>TRAVEL DATE</th>
+         <th>MODE</th>
+         <th>STATUS</th>
+       </tr> 
+     </thead>
+     
+     <tbody>
+       
+     <tr *ngFor="let f of member | paginate:{
+      itemsPerPage:5, currentPage: pageNo
+     }">
+       
+       
+         
+      <td>{{f.userId}}</td>
+       <td>{{f.source}}</td>
+       <td>{{f.destination}}</td>
+       <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td>
+       <td>{{f.travelMode}}</td>
+       <td>{{f.currentStatus}}</td>
+       <td>
+       <a href="#" routerLink="/Details" (click)="detailchk(f)" ><i class="fa fa-file-text "></i></a></td>
+       <!--button *ngIf="f.currentStatus=='APPROVED'"(click)="editchk(f)">Edit</button></td-->
+      <td><a href="#" routerLink="/edit" *ngIf="f.currentStatus=='APPROVED'"  (click)="editchk(f)" class="edt"><i class="fa fa-pencil "></i></a></td>
+    
+    
+     </tr>
+     </tbody>
+     <pagination-controls (pageChange)="pageNo= $event"></pagination-controls>
+    </table>
+    <!-- <pagination-controls (pageChange)="pageNo= $event"></pagination-controls> -->
    </div> 
+
+
+  <!--tbody>
+    <tr *ngFor="let f of member">
+    <div class="card">
+     <div class="card-title">
+      <br> <h4>{{ f.source }} to {{ f.destination }}</h4>
+     </div>
+     <div class="card-body">
+       <div class="body-top">
+         <p>Raised by: {{ f.name }}, {{ f.loginId }}</p>
+   
+         <p>Travel Date: {{ f.travelDate | date }}</p>
+   
+         <p>Travel Mode: {{ f.travelMode }}</p>
+       </div>
+       <div class="body-bottom">
+         <p>Request Status : {{ f.currentStatus }}</p>
+ 
+         <button class="btn" (click)="detailchk(f)">
+           <i class="fa fa-file-text"></i>
+         </button-->
 

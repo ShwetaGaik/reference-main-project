@@ -1,13 +1,13 @@
-<h1>Welcome  {{username}}</h1>
+<!-- <h1>Welcome  {{username}}</h1>
 
-<button (click)="ndisp()">Home</button>
-  <button (click)="trq()">TravelRequest</button>
+<button class="btn btn-outline-primary" (click)="ndisp()">Home</button>
+  <button class="btn btn-outline-dark" (click)="trq()">TravelRequest</button>
   
-<button routerLink="/Createreq" *ngIf="display">Raise Request</button>
-<button routerLink="/"  >Logout</button>
+<button class="btn btn-outline-dark" routerLink="/Createreq" *ngIf="display">Raise Request</button>
+<button class="btn btn-outline-danger" routerLink="/"  >Logout</button>
 
 <div class="container">
-    <table class="table table-trapped" *ngIf="display">
+    <table  class="table table-hover" *ngIf="display">
      <thead>
        <tr>
          <th>Source</th>
@@ -30,12 +30,171 @@
        <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td>
        <td>{{f.travelMode}}</td>
        <td>{{f.currentStatus}}</td>
-       <button (click)="detailchk(f)">Details</button>
-       <button (click)="deletechk(f)">Delete</button>
-   
+       <button class="btn btn-outline-secondary" (click)="detailchk(f)">Details</button>
+       <button class="btn btn-outline-danger" (click)="deletechk(f)">Delete</button>
+  
      </tr>
      </tbody>
     </table>
+   </div>  -->
+
+
+
+
+
+   <link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script>
+<header>
+  <nav>
+      <div class="logo"><h1 class="">Welcome {{username}}  </h1></div>
+      <!-- <pre class="role" >    Based on your role. EMPLOYEE 
+    You can raise a travel request
+    which will be approved by your manager</pre> -->
+
+<div class="menu">
+
+<a href="#" routerLink="/login" (click)="ndisp()">Home</a>
+<a href="#" routerLink="/employee" (click)="trq()">Travel Request</a>
+<a href="#" routerLink="/Createreq" *ngIf="display">Raise Request</a>
+<a href="#" routerLink="/"  (click)="logout()">Logout</a >
+
+</div>
+</nav>
+
+
+<div class="container">
+    <table class="table table-trapped" *ngIf="display">
+     <thead>
+       <tr>
+         <th>SOURCE</th>
+         <th>DESTINATION</th>
+         <th>TRAVEL DATE</th>
+         <th>MODE</th>
+         <th>STATUS</th>
+         
+       </tr> 
+     </thead>
+     
+     <tbody>
+       
+     <tr *ngFor="let f of member | paginate:{
+      itemsPerPage:5, currentPage: pageNo
+     }">
+       
+       
+         
+       
+       <td>{{f.source}}</td>
+       <td>{{f.destination}}</td>
+       <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td>
+       <td>{{f.travelMode}}</td>
+       <td>{{f.currentStatus}}</td>
+       <td>
+        <a href="#" routerLink="/Details" (click)="detailchk(f)"><i class="fa fa-file-text  "></i></a>
+        </td>
+        
+        <td>
+        <a href="#" routerLink="/delete" (click)="deletechk(f)" class="del"><i class="fa fa-trash "></i></a>
+       </td>
+       
+     </tr>
+     </tbody>
+     <pagination-controls (pageChange)="pageNo= $event"></pagination-controls>
+    </table>
+    <!-- <pagination-controls (pageChange)="pageNo= $event"></pagination-controls> -->
    </div> 
+
+<!-- 
+   <div class="pagination">
+    <li class="page-item previous-page disable"><a class="page-link" href="#">Prev</a></li>
+    <li class="page-item current-page active"><a class="page-link" href="#">1</a></li>
+    <li class="page-item current-page"><a class="page-link" href="#">2</a></li>
+    
+    <li class="page-item dots"><a class="page-link" href="#">..</a></li>
+    <li class="page-item current-page"><a class="page-link" href="#">6</a></li>
+    <li class="page-item current-page"><a class="page-link" href="#">7</a></li>
+    <li class="page-item dots"><a class="page-link" href="#">..</a></li>
+    <li class="page-item current-page"><a class="page-link" href="#">10</a></li>
+    <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
+  </div>
+ 
+  <script type="text/javascript">
+    function getPageList(totalPages,page,macLength){
+      function range(start,end){
+        return Array.from(Array(end-start +1), (_, i) => i + start);
+
+      }
+      var sideWidth = maxLength < 9 ? 1 : 2;
+      var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;  
+      var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1; 
+
+      if(totalPages <= maxLength){
+        return range(1, totalPages)  
+          }
+
+          if(page <= maxLength - sideWidth - 1 - rightWidth) {
+            return range(1, maxLength - sideWidth).concat(0, range(totalPages - sideWidth + 1,totalPages));
+          }
+
+          if(page >= totalPages - sideWidth - 1 - rightWidth){
+            return range(1, sideWidth).concat(0, range(totalPages- sideWidth - 1 - rightWidth - leftWidth,totalPages));
+          }
+          return range(1, sideWidth).concat(0, range(page - leftWidth,page + rightWidth), 0 ,range(totalPages - sideWidth + 1,totalPages));
+    }
+
+    $(function(){
+      var numberOfitems = $(".card").length;
+    var limitPerPage = 3;
+    var totalPages=Math.ceil(numberOfitems / limitPerPage);
+    var paginationSize=7;
+    var currentPage;
+
+    function showPage(whichPage){
+      if(whichPage < 1 || whichPage > totalPages)return false;
+
+      currentPage = whichPage;
+
+      $(".card").hide().slice((currentPage - 1) * limitPerPage,currentPage*limitPerPage).show();
+
+      $(".pagination li").slice(1,-1).remove();
+
+      getPageList(totalPages,currentPage,paginationSize).forEach(item => {
+
+        $("<li>").addClass("page-item").addClass(item ? "current-page" : "dots")
+          .toggleClass("active", item === currentPage).append($<"<a>").addClass("page-link")
+            .attr({href : " javascript:void(0)"}).text(item || "...").insertBefore(".nextPage");    
+    });
+
+    $(".previous-page").toggleClass("disable",currentPage === 1);
+    $(".next-page").toggleClass("disable",currentPage === totalPages);
+    return true;
+  }
+  $(".pagination").append(
+    $("<li>").addClass("page=item"),addClass("previous-page").append($("<a>")).addClass("page-link")).attr({href: "javascript:void(0)"});
+
+      $(".card").show();
+      showPage(1);
+
+      $(document).on("click",".pagination li.current-page:not(.active)",function(){
+        return showPage(+$(this).text());
+
+      });
+      $("next-page").on("click",function(){
+        return showPage(currentPage + 1);
+      });
+      
+    });
+  </script> -->
+
+
+
+
+
+
+
+   
    
 

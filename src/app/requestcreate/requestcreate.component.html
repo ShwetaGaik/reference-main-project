@@ -1,33 +1,83 @@
-<p>requestcreate works!</p>
-<form  #userlogin = "ngForm">
-    <div class="container">
-      <h1>Raise Request</h1>
+<!-- <p>requestcreate works!</p>
+<form  #userlogin = "ngForm"> -->
+    <!-- <div class="container"> -->
+      <!-- <h1>Raise Request</h1>
       
       <hr>
-  
+      <div class="form-group" >
       <label for="source"><b>Source</b></label><br>
-      <input type="text" placeholder="Enter source" name="source" id="source" required ngModel><br>
-  
+      <input type="text" class="form-control" placeholder="Enter source" name="source" id="source" required ngModel><br>
+      </div>
+      <div class="form-group">
       <label for="destination"><b>Destination</b></label><br>
-      <input type="text" placeholder="Enter destination" name="destination" id="destination" required ngModel><br>
-  
+      <input type="text" class="form-control" placeholder="Enter destination" name="destination" id="destination" required ngModel><br>
+    </div>
+    <div class="form-group">
       <label for="traveldate"><b>travelDate</b></label><br>
-      <input type="datetime-local" placeholder="travel date" name="traveldate" id="travel date" required ngModel><br>
+      <input type="datetime-local" class="form-control" placeholder="travel date" name="traveldate" id="travel date" required ngModel><br>
        {{message}}<br>
-      <label for="mode"><b>travelMode</b></label><br>
-      <select name="mode" id="mode" ngModel>
-        <option value="Flight">Flight</option>
-        <option value="Train">Train</option>
-        <option value="Bus">Bus</option>
-        <option value="Car">Car</option>
+      </div>
+      <div class="form-group">
+      <label for="mode" ><b>travelMode</b></label><br>
+      <select name="mode"class="form-control" id="mode" ngModel>
+        <option class="form-control"value="Flight">Flight</option>
+        <option class="form-control"value="Train">Train</option>
+        <option class="form-control"value="Bus">Bus</option>
+        <option class="form-control"value="Car">Car</option>
       </select> 
+    </div>
       
       <br><br>
   
-      
-      <button type="button" class="createbtn" (click)="chkclick(userlogin.value)">Create</button>
+      <div>
+      <button type="button" class="btn btn-primary"(click)="chkclick(userlogin.value)">Create</button>
     </div>
   
     
-  </form>
+  </form> -->
+
+
+
+
+
+
+
+
+  <header>
+    <div class="form-center">
+      <form  #userlogin = "ngForm">
+          <div class="container">
+      
+           <br>
+            <h1>Raise Request</h1><br><br>
+            
+          
+            <br>
+            <div class="raise"></div>
+            <label for="source"><b>Source : </b></label>
+             <input type="text" placeholder="Enter source" name="source" id="source" required ngModel><br>
+        <br>
+            <label for="destination"><b>Destination :</b></label>
+            <input type="text" placeholder="Enter destination" name="destination" id="destination" required ngModel><br>
+        <br>
+            <label for="traveldate"><b>Travel Date : </b></label>
+            <input type="datetime-local" placeholder="travel date" name="traveldate" id="travel date" required ngModel><br>
+            <div style="color:red"> {{message}}</div>
+            <br>
+            <label for="mode"><b>Travel Mode :</b> </label>
+            <select name="mode" id="mode" ngModel>
+              <option value="Flight">Flight</option>
+              <option value="Train">Train</option>
+              <option value="Bus">Bus</option>
+              <option value="Car">Car</option>
+            </select> 
+            
+            <br><br>
+        
+            
+            <button type="button" class="btn btn-primary" (click)="chkclick(userlogin.value)"><b>Create</b></button>
+          </div>
+        
+          
+        
   

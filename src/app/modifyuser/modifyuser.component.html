@@ -1,7 +1,70 @@
-<p>modifyuser works!</p>
-<button (click)="route()">Back to list</button>
 
-<table >
+
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+rel="stylesheet"  type='text/css'>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
+  <div class="container">
+    <header>
+    <br>
+     <h1>Update Details</h1>
+<button (click)="route()">Back to list</button><br><br>
+
+<table class="table-trapped" >
+    <thead>
+      <tr >
+        <th>Employee Id</th>
+        <th>Name</th>
+        <th>User Type</th>
+        <th>Login Id</th>
+        <th>Manager User Id</th>
+        
+      </tr> 
+
+
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let f of members | paginate:{
+          itemsPerPage:5, currentPage: pageNo
+         }">
+            <td>{{f.userId}}</td>
+            <td>{{f.name}}</td>
+            <td>{{f.userTypeId}}</td>
+            <!-- <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td> -->
+            <td>{{f.loginId}}</td>
+            <td>{{f.managerUserId}}</td>
+           <td> <a style="cursor: pointer;" (click)="editchk(f)" class="edt"><i class="fa fa-pencil "></i></a></td>
+           <td> <a style="cursor: pointer;" (click)="deletechk(f)" class="del"><i class="fa fa-trash "></i></a></td>
+        </tr>
+    </tbody>
+   
+</table>
+<pagination-controls (pageChange)="pageNo= $event"></pagination-controls>
+
+
+
+
+
+
+
+
+
+
+ <!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+rel="stylesheet"  type='text/css'>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
+  <div class="container">
+    <header>
+    <br>
+     <h1>Update Details</h1>
+     
+   
+     <button (click)="route()">Back to list</button>
+     
+   
+     <br>
+<br>
+<table class="table-trapped" >
     <thead>
       <tr >
         <th>Employee Id</th>
@@ -20,12 +83,14 @@
             <td>{{f.userId}}</td>
             <td>{{f.name}}</td>
             <td>{{f.userTypeId}}</td>
-            <!-- <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td> -->
+            
             <td>{{f.loginId}}</td>
             <td>{{f.managerUserId}}</td>
-            <button (click)="editchk(f)">Edit</button>
-            <button (click)="deletechk(f)">Delete</button>
+           <td>
+            <button (click)="editchk(f)"><i class="fa fa-pencil "></i></button></td>
+            <td>
+            <button  (click)="deletechk(f)"><i class="fa fa-trash "></i></button>
         </tr>
     </tbody>
-</table>
+</table> -->
 

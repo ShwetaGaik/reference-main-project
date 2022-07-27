@@ -97,7 +97,7 @@ export class AuthComponent  {
     if(res1.status!=200){
 
       // alert("wrong id or pass")
-      this.message='Incorrect id or pass'
+      this.message='Incorrect LoginId or Password'
       return 
     }
 

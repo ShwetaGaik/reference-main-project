@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AuthComponent } from './auth/auth.component';
+import { CheckbootComponent } from './checkboot/checkboot.component';
 import { DeleteComponent } from './delete/delete.component';
 import { DeleteadminComponent } from './deleteadmin/deleteadmin.component';
 import { DetailsComponent } from './details/details.component';
@@ -43,3 +44,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingcomp=[EmployeeloginComponent,HomeComponent,RequestcreateComponent,AuthComponent,DetailsComponent,DeleteComponent,ManagerloginComponent,TravelagentloginComponent,EditComponent,AdminloginComponent,RegisterComponent,ModifyuserComponent,EditComponent,DeleteadminComponent]
+// export const routingcomp=[EmployeeloginComponent,CheckbootComponent,RequestcreateComponent,AuthComponent,DetailsComponent,DeleteComponent,ManagerloginComponent,TravelagentloginComponent,EditComponent,AdminloginComponent,RegisterComponent,ModifyuserComponent,EditComponent,DeleteadminComponent]

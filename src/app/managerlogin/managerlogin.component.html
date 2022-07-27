@@ -1,18 +1,15 @@
-<p>managerlogin works!</p>
+<!-- <p>managerlogin works!</p>
 
-<h1>Welcome  {{username}}</h1>
-<!-- <button (click)="trq()">TravelRequest</button> -->
+<h1>Welcome  {{username}}</h1> 
 
 
-<!-- <button routerLink="/Createreq">Raise Request</button> -->
-
-<button (click)="ndisp()">Home</button>
-  <button (click)="trq()">TravelRequest</button>
-  <button (click)="vtrq()">View your Request</button>
-  <button routerLink="/Createreq" *ngIf="display">Raise Request</button>
-  <button routerLink="/">Logout</button>
+<button class="btn btn-outline-primary" (click)="ndisp()">Home</button>
+  <button class="btn btn-outline-dark" (click)="trq()">TravelRequest</button>
+  <button class="btn btn-outline-dark" (click)="vtrq()">View your Request</button>
+  <button class="btn btn-outline-dark" routerLink="/Createreq" *ngIf="display">Raise Request</button>
+  <button class="btn btn-outline-danger" routerLink="/">Logout</button>
  <div class="container"> 
-    <table class="table table-trapped" *ngIf="display" >
+    <table class="table table-hover"  *ngIf="display" >
      <thead>
        <tr>
          <th>Source</th>
@@ -36,14 +33,23 @@
        <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td>
        <td>{{f.travelMode}}</td>
        <td>{{f.currentStatus}}</td>
-        <button  (click)="detailchk(f)">Details</button>
-        <button (click)="deletechk(f)">Delete</button>
+        <button class="btn btn-outline-secondary" (click)="detailchk(f)">Details</button>
+        <button class="btn btn-outline-danger" (click)="deletechk(f)">Delete</button>
       
       
     
      </tr>
     
      </tbody>
+
+
+
+
+
+
+
+
+    
 
 
 
@@ -64,7 +70,7 @@
 
 
 
-    <table class="table table-trapped" *ngIf="displaynew" >
+    <table class="table table-hover"  *ngIf="displaynew" >
       <thead>
         <tr>
           <th>Requested By</th>
@@ -89,8 +95,8 @@
         <td>{{q.travelDate.split("T")[0]}} {{q.travelDate.split("T")[1]}}</td>
         <td>{{q.travelMode}}</td>
         <td>{{q.currentStatus}}</td>
-         <button  (click)="detailchk(q)">Details</button>
-         <button *ngIf="q.currentStatus=='SUBMITTED'" (click)="editchk(q)">Edit</button>
+         <button class="btn btn-outline-danger"  (click)="detailchk(q)">Details</button>
+         <button class="btn btn-outline-warning" *ngIf="q.currentStatus=='SUBMITTED'" (click)="editchk(q)">Edit</button>
        
      
       </tr>
@@ -107,4 +113,105 @@
  
       
      </table>
-   </div> 
+   </div>  -->
+
+
+   <link 
+   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+   rel="stylesheet"  type='text/css'>
+   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
+   <header>
+   <nav>
+   <div class="logo"><h1>Welcome {{username}} !</h1></div>
+   <div class="menu">
+   <a href="#" routerLink="/manager" (click)="ndisp()">Home</a>
+     <a href="#" routerLink="/manager" (click)="trq()">Travel Request</a>
+   <a href="#" routerLink="/manager" (click)="vtrq()">View your Request</a>
+     <a href="#" routerLink="/Createreq" *ngIf="display">Raise Request</a>
+     <a href="#" routerLink="/" (click)="logout()">Logout</a>
+   </div>
+     </nav>
+    
+   <div class="container">
+       <table class="table table-trapped" *ngIf="display" >
+        <thead>
+          <tr>
+           
+            <th>SOURCE</th>
+            <th>DESTINATION</th>
+            <th>DATE OF TRAVEL</th>
+            <th>MODE OF TRAVEL</th>
+            <th>STATUS</th>
+            
+          </tr> 
+        </thead>
+        
+        <tbody>
+           <tr *ngFor="let f of selfmember | paginate:{
+            itemsPerPage:5, currentPage: pageNo
+           }" >
+          
+          
+          <td>{{f.source}}</td>
+          <td>{{f.destination}}</td>
+          <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td>
+          <td>{{f.travelMode}}</td>
+          <td>{{f.currentStatus}}</td>
+          <td> <a href="#" routerLink="/Details"  (click)="detailchk(f)"><i class="fa fa-file-text"></i></a></td>
+           <td><a href="#" routerLink="/delete"  (click)="deletechk(f)" class="del"><i class="fa fa-trash"></i></a></td>
+           
+       
+       
+        </tr>
+        <pagination-controls (pageChange)="pageNo= $event"></pagination-controls>
+        </tbody>
+       </table>
+       <!-- <pagination-controls (pageChange)="pageNo= $event"></pagination-controls> -->
+      
+      <table class="table table-trapped" *ngIf="displaynew" >
+       <thead>
+         <tr>
+          <th>Requested By</th>
+           <th>Source</th>
+           <th>Destination</th>
+           <th>Travel Date</th>
+           <th>Mode</th>
+           <th>Status</th>
+         </tr> 
+       </thead>
+       
+       <tbody>
+        
+         
+       <tr *ngFor="let q of member | paginate:{
+        itemsPerPage:5, currentPage: pageNo
+       }" >
+         
+        <td>{{q.userId}}</td>
+          <td>{{q.source}}</td>
+         <td>{{q.destination}}</td>
+         <td>{{q.travelDate.split("T")[0]}} {{q.travelDate.split("T")[1]}}</td>
+         <td>{{q.travelMode}}</td>
+         <td>{{q.currentStatus}}</td>
+          <td><a href="#" routerLink="/Details" (click)="detailchk(q)"><i class="fa fa-file-text"></i></a></td>
+          <td><a href="#" routerLink="/edit" *ngIf="q.currentStatus=='SUBMITTED'" (click)="editchk(q)" class="edt"><i class="fa fa-pencil"></i></a></td>
+          
+          
+       </tr>
+       </tbody>
+       <pagination-controls (pageChange)="pageNo= $event"></pagination-controls>
+       </table>
+       <!-- <pagination-controls (pageChange)="pageNo= $event"></pagination-controls> -->
+    </div> 
+   
+
+
+
+
+
+
+
+
+
+
+

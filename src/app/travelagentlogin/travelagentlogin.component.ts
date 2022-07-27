@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./travelagentlogin.component.css']
 })
 export class TravelagentloginComponent implements OnInit {
+  pageNo:number=1;
+  pageOfItems: Array<any>=[] ;
   displaynew=GlobalConstants.displaynew
   username=GlobalConstants.username
   member:any=[]
@@ -75,8 +77,15 @@ trq():any{
   
   return this.member
 }
+onChangePage(pageOfItems:Array<any>)
+   {
+    this.pageOfItems=pageOfItems;
+   }
 
-
+   logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/')
+  }
 
 constructor(private router: Router) {}
 

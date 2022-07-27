@@ -1,19 +1,81 @@
-<p>deleteadmin works!</p>
 
-<h2>Are You Sure You Want To Delete?</h2>
+<header>
+    <link 
+      href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+      rel="stylesheet"  type='text/css'>
+      <div class="new">
+    <br>
+ 
+    
+    
+    <h2>Are You Sure You Want To Delete The Request ?</h2>
+    <br>
+        <br>
+        <div class="card">
+
+<!-- <h2>Are You Sure You Want To Delete?</h2> -->
 
 <div >
 
     Employee Id:{{empdetail.userId}}<br><br>
     Name:{{empdetail.name}}<br><br>
-    Employee Type:{{empdetail.userTypeId}}<br><br>
+    Employee Type:{{usrtype}}<br><br>
     <!-- :{{empdetail.travelDate.split("T")[0]}} {{empdetail.travelDate.split("T")[1]}}<br><br> -->
     Login Id:{{empdetail.loginId}}<br><br>
-    Manager :{{empdetail.managerUserId}}<br><br>
-    <button (click)="chkdelete()">Delete</button>
+    Manager :{{mgr}}<br><br>
+    <a style="cursor: pointer;" class="btn" (click)="chkdelete()"><i class="fa fa-trash"></i></a><br><br>
 
     
-        <button (click)="route()">Back to list</button>
+        <a style="cursor: pointer;" (click)="route()">Back to list</a>
     
 </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <header>
+    <link 
+      href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+      rel="stylesheet"  type='text/css'>
+      <div class="new">
+    <br>
+ 
+    
+    
+    <h2>Are You Sure You Want To Delete The Request ?</h2>
+    <br>
+        <br>
+        <div class="card">
+    <div >
+        
+    <br>
+
+    Employee Id:{{empdetail.userId}}<br><br>
+    Name:{{empdetail.name}}<br><br>
+    Employee Type:{{empdetail.userTypeId}}<br><br>
+    
+    Login Id:{{empdetail.loginId}}<br><br>
+    Manager :{{empdetail.managerUserId}}<br><br>
+    <a href="#" routeralaink="/admin" class="btn" (click)="chkdelete()"><i class="fa fa-trash"></i></a>
+</div>
+</div>
+    <div>
+        <nav>
+            <br>
+            <a href="#" routerLink="/modify">Back To List</a>
+        </nav>
+    </div>  
+
+    
+    
+</div> -->
+
+
 

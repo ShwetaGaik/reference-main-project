@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class EditadminComponent implements OnInit {
   ngSelect:any
   empdetail:any
+  usrtp:any
+  mgr:any
   role: string[] = [];
   async chkclick(){
   let url="https://localhost:8000/api/User/GetAllUsers"
@@ -68,14 +70,46 @@ export class EditadminComponent implements OnInit {
     })
     let apires;
     apires=await res.json()
-    console.log("iiiiiiiiii");
     
-    //  console.log(apires);
     this.router.navigateByUrl("/modify")
     
 
   }
+async getuserdet(){
+  let url="https://localhost:8000/api/User/GetUser"
+  let obj={
+    // "id":"02-07-2022-20-43-35",
+    "id":"",
+    "loginId": this.empdetail.loginId
+  }
+  let res=await fetch(url,{
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method:"POST",
+    body:JSON.stringify(obj)
 
+    
+  })
+  let apires;
+  apires=await res.json()
+  // console.log(apires);
+  
+  this.usrtp=apires.userTypeId
+  console.log("inside get user");
+  
+  console.log(this.usrtp);
+  this.ngSelect=this.usrtp
+  this.mgr=apires.managerUserId
+  
+
+
+
+
+  
+
+}
 
 
   constructor(private router: Router) {}
@@ -84,10 +118,17 @@ export class EditadminComponent implements OnInit {
     
     GlobalConstants.display=true
     this.empdetail=GlobalConstants.detail
-    this.ngSelect=this.empdetail.userTypeId
+    console.log(this.empdetail.loginId);
+    
+   
     console.log("in details");
     console.log(this.empdetail);
     console.log("qwertyu");
+    this.getuserdet()
+    
+    
+    console.log(this.usrtp);
+    
     
     this.chkclick()
   }

@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./employeelogin.component.css']
 })
 export class EmployeeloginComponent implements OnInit {
-  
+pageNo:number=1;
  username=''
 
 display=GlobalConstants.display
+  pageOfItems: Array<any>=[] ;
 //  $scope.disableTagButton = {'visibility': 'hidden'};
 
   // constructor() {
@@ -79,6 +80,12 @@ trq():any{
   return this.member
 }
 
+
+logout(){
+  localStorage.clear();
+  this.router.navigateByUrl('/')
+}
+
   ngOnInit(): any {
     // if(GlobalConstants.display){
       this.chkclick1()
@@ -107,7 +114,10 @@ trq():any{
      this.router.navigateByUrl('/delete')
   }
 
-
+ onChangePage(pageOfItems:Array<any>)
+ {
+  this.pageOfItems=pageOfItems;
+ }
 
 
 

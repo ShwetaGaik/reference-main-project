@@ -64,7 +64,7 @@ export class RequestcreateComponent {
     
     if(data.traveldate<this.cValue) {
       console.log("wrong date");
-      alert("Use a valid Date")
+      // alert("Use a valid Date")
       this.message='Invalid Date'
       return 
       

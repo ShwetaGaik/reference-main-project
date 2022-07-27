@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./adminlogin.component.css']
 })
 export class AdminloginComponent implements OnInit {
+  pageNo:number=1;
   members:any
   members1:any
   display=GlobalConstants.display
   username=GlobalConstants.username
+  pageOfItems: Array<any>=[] ;
 
 
 toggledisplay(){
@@ -115,6 +117,13 @@ ngOnInit(): void{
   // this.display=false
   
   }
+  onChangePage(pageOfItems:Array<any>)
+  {
+   this.pageOfItems=pageOfItems;
+  }
+
+
+
 }
 
 

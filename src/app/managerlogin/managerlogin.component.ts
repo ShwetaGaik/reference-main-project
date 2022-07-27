@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./managerlogin.component.css']
 })
 export class ManagerloginComponent implements OnInit {
+  pageNo:number=1;
+  pageOfItems: Array<any>=[] ;
   username=GlobalConstants.username
   member:any=[]
   selfmember:any=[]
@@ -69,7 +71,10 @@ ndisp(){
 
 }
 
-
+logout(){
+  localStorage.clear();
+  this.router.navigateByUrl('/')
+}
 
 
 
@@ -114,6 +119,10 @@ deletechk(element:any){
  // console.log(element);
    this.router.navigateByUrl('/delete')
 }
+onChangePage(pageOfItems:Array<any>)
+   {
+    this.pageOfItems=pageOfItems;
+   }
 
 
 

@@ -19,6 +19,9 @@ import { ModifyuserComponent } from './modifyuser/modifyuser.component';
 import { EditadminComponent } from './editadmin/editadmin.component';
 import { DeleteadminComponent } from './deleteadmin/deleteadmin.component';
 import { HomeComponent } from './home/home.component';
+import { CheckbootComponent } from './checkboot/checkboot.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -39,11 +42,14 @@ import { HomeComponent } from './home/home.component';
     EditadminComponent,
     DeleteadminComponent,
     HomeComponent,
+    CheckbootComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

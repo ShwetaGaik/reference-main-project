@@ -1,4 +1,4 @@
-<p>details works!</p>
+<!-- <p>details works!</p>
 <div >
 
     source:{{empdetail.source}}<br><br>
@@ -9,6 +9,58 @@
     status :{{empdetail.currentStatus}}<br><br>
 
     <nav>
-        <button (click)="route()">Back to list</button>
+        <button class="btn btn-outline-primary" (click)="route()">Back to list</button>
     </nav>
-</div>
+</div> -->
+
+<!-- 
+<div class="card w-50 ">
+    <h5 class="card-header">{{empdetail.userId}}</h5>
+    <div class="card-body">
+      
+      <p class="card-text">source:{{empdetail.source}}</p>
+      <p class="card-text">destination:{{empdetail.destination}}</p>
+      <p class="card-text">travel date:{{empdetail.travelDate.split("T")[0]}} {{empdetail.travelDate.split("T")[1]}}</p>
+      <p class="card-text">travel mode:{{empdetail.travelMode}}</p>
+      <p class="card-text">status :{{empdetail.currentStatus}}</p>
+      <button class="btn btn-outline-primary" (click)="route()">Back to list</button>
+    </div>
+  </div> -->
+
+
+
+
+  <header>
+    <div class="new">
+    
+            
+           <header>
+            
+            
+    <br>
+    <p>Here Are Your Details  </p>
+    
+    <br>
+    <br>
+    <br>
+    <div class="card">
+    <div >
+    <br>
+        SOURCE : {{empdetail.source}}<br><br>
+        DESTINATION : {{empdetail.destination}}<br><br>
+        USER ID : {{empdetail.userId}}<br><br>
+       DATE OF TRAVEL : {{empdetail.travelDate.split("T")[0]}} AT {{empdetail.travelDate.split("T")[1]}}<br><br>
+        MODE OF TRAVELLING : {{empdetail.travelMode}}<br><br>
+        STATUS : {{empdetail.currentStatus}}<br><br>
+    </div>
+    </div>
+    <br>
+    
+    <div>
+        <nav>
+            <a style="cursor: pointer;" (click)="route()">Back to list</a>
+        </nav>
+    </div>
+            
+    </header>
+    </div>

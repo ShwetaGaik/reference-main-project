@@ -50,9 +50,9 @@ export class EditComponent implements OnInit {
   let apires;
   apires=await res.json()
   console.log(apires);
-  if(data.status){
+  // if(data.status){
 
-  }
+  // }
  
   if(res.ok){
     this.route()
@@ -61,8 +61,8 @@ export class EditComponent implements OnInit {
   else{
     this.router.navigateByUrl('/edit')
   }
-  GlobalConstants.displaynew=true
-    GlobalConstants.display=false
+  // GlobalConstants.displaynew=true
+  //   GlobalConstants.display=false
   
 }
 route(){
@@ -90,6 +90,7 @@ route(){
 
   }
   if(GlobalConstants.usertypeid=="ADMIN"){
+    GlobalConstants.display=true
     this.router.navigateByUrl('/admin')
 
   }

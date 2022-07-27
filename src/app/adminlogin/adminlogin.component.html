@@ -1,4 +1,4 @@
-<p>adminlogin works!</p>
+<!-- <p>adminlogin works!</p>
 <h1>Welcome  {{username}}</h1>
 
 
@@ -27,12 +27,85 @@
             <td>{{f.destination}}</td>
             <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td>
             <td>{{f.travelMode}}</td>
-            <!-- <td>{{f.currentStatus}}</td> -->
+            
             <button (click)="editchk(f)">Edit</button>
             <button (click)="deletechk(f)">Delete</button>
             <button (click)="detailchk(f)">Details</button>
         </tr>
     </tbody>
-</table>
+</table> -->
 
+
+
+
+
+
+
+
+
+
+
+
+<div>
+<link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
+<header>
+  <nav>
+    <div class="logo"><h1 class="">Welcome {{username}} !</h1></div>
+
+<div class="menu">
+  
+<a style="cursor: pointer;" (click)="toggledisplay()"> Travel Request </a>
+<a style="cursor: pointer;"  (click)="adduser()">Add User</a>
+<a style="cursor: pointer;" (click)="modifyuser()">Modify User</a>
+<a href="#" routerLink="/" (click)="logout()">Logout</a>
+
+</div>
+</nav>
+
+
+<table class="table-trapped" *ngIf="display">
+ 
+    <thead>
+      <tr>
+        <th ><b>REQUESTED BY</b></th>
+        <th>SOURCE</th>
+        <th>DESTINATION</th>
+        <th>TRAVEL DATE</th>
+        <th>MODE</th>
+        <th>CURRENT REQUEST STATUS</th>
+      </tr> 
+
+
+    </thead>
+<tbody>
+ 
+        <tr *ngFor="let f of members| paginate:{
+          itemsPerPage:5, currentPage: pageNo
+         }">
+          
+            <td>{{f.name}}</td>
+            <td>{{f.source}}</td>
+            <td>{{f.destination}}</td>
+            <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td>
+            <td>{{f.travelMode}}</td>
+            <td>{{f.currentStatus}}</td>
+            <!--button class="btns" (click)="editchk(f)"><i class="fa fa-pencil"></i></button>
+            <button class="btns" (click)="deletechk(f)"><i class="fa fa-trash"></i></button>
+            <button class="btns"(click)="detailchk(f)"><i class="fa fa-file-text "></i></button-->
+            <td><a style="cursor: pointer;" (click)="editchk(f)" class="btn"><i class="fa fa-pencil"></i></a></td>
+            <td><a  style="cursor: pointer;" (click)="deletechk(f)" class="del"><i class="fa fa-trash"></i></a></td>
+            <td>
+              <a style="cursor: pointer;" (click)="detailchk(f)" class="edt"><i class="fa fa-file-text "></i></a></td>
+              
+        </tr>
+  </tbody>
+  <pagination-controls (pageChange)="pageNo= $event"></pagination-controls>
+</table>
+<!-- <pagination-controls (pageChange)="pageNo= $event"></pagination-controls> -->
+</header>
+</div>
+  
   

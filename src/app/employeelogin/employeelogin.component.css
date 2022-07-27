@@ -1,0 +1,308 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    }
+
+    nav{
+        width: 100%;
+        height: 15vh;
+        background: transparent;
+        color:black;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        text-transform: uppercase;
+    }
+    nav .logo{
+        font-weight: bold;
+        width:25%;
+        text-align: center;
+    }
+  
+        
+
+    nav .menu{
+        width: 40%;
+        display:flex;
+        justify-content: space-around;
+      
+    }
+    nav .menu a
+    {
+        width:25%;
+        text-decoration: none;
+        color:black;
+        font-weight: bold;
+    }
+    header{
+        width: 100%;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-image:url('src\assets\images\neew.jpg');
+        font-weight: bold;
+        background-size: cover;
+    }
+    .table-trapped{
+        border-collapse: collapse;
+        background-color: transparent;
+        margin:25px 0;
+        font-size: 0.9em;
+        min-width:100%;
+    }
+    
+    .table-trapped thead tr{
+        background-color: transparent;
+        text-align: left;
+        font-weight: bold;
+        font-size: larger;
+    }
+    
+    .table-trapped th, .table-trapped tr{
+        padding: 12px 15px;
+        text-align: center;
+    }
+    
+    .table-trapped tbody tr{
+        background-color: transparent;
+        border-bottom: 1px solid #ffffff;
+        font-size: large;
+        text-align: center;
+        
+    }
+
+    td
+	{
+		height:40px;
+	}
+    
+    .table-trapped tbody td{
+        background-color: transparent;
+        border-bottom: 1px solid #f3f3f3;
+    }
+
+
+    header{
+        width: 100%;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-image:url('src\assets\images\neew.jpg');
+        font-weight: bold;
+        background-size:cover;
+    }
+
+    nav{
+        width: 100%;
+        height: 10vh;
+        background: transparent;
+        color:black;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        text-transform: uppercase;
+    }
+    nav .logo{
+    font-size: 20px;
+    width:45%;
+    text-align:center;
+    margin-top: 50px;
+    }
+        
+
+    nav .menu{
+        width: 80%;
+        display:flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        font-weight: bold;
+      
+    }
+    nav .menu a
+    {
+        font-size: 15px;
+        width:35%;
+        text-decoration: none;
+        color:black;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+
+    h4
+{
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+    
+.card {
+   width: 200%;
+    padding: 10px;
+    margin: 4px 0;
+    background-color: #ccc;
+}
+.card-body {
+  
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+        
+        @media(min-width:768px) {
+            flex-direction: row;
+
+         
+        }
+
+    }
+    .body-bottom {
+      
+        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+
+
+.pagination{
+    text-align: center;
+    margin: 30px 30px 60px;
+    user-select: none;
+}
+
+       .pagination li{
+        display: inline-block;
+        margin: 5px;
+        box-shadow: 0 5px 25px rgb(1,1,1 / 10%);
+       }     
+        .previous-page , .next-page{
+            background: #0ab1ce;
+            
+            width: 80px;
+            border-radius: 45px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .previous-page hover{
+transform: translateX(-5px);
+        }
+
+        .next-page hover{
+            transform: translateX(-5px);
+                    }
+    
+        .current-page, .dots{
+            background: #ccc;
+            
+            width:45px;
+            border-radius: 50%;
+            cursor: pointer;
+                }
+        
+    .active{
+        background: #0ab1ce;
+        
+    }
+.disable{
+    background: #ccc;
+}
+.del{
+    color:red ;
+}
+
+
+
+ 
+
+    nav .menu{
+        width: 40%;
+        display:flex;
+        justify-content: space-around;
+      
+    }
+    nav .menu a
+    {
+        width:25%;
+        text-decoration: none;
+        color:black;
+        font-weight: bold;
+    }
+
+
+    h4
+{
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+    
+.card {
+    padding: 10px;
+    margin: 5px 0;
+}
+.card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+        
+        @media(min-width:768px) {
+            flex-direction: column;
+
+         
+        }
+
+    }
+    .body-bottom {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+td .a{
+color: black;
+}
+main{
+    width:100%;
+    height:85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+
+section h3{
+    font-size: 35px;
+    font-weight:200 ;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    color: white;
+}
+
+section h1{
+    margin:30px 0 20px 0;
+    font-size: 55px;
+    
+    text-shadow: 2px 1px 5px black;
+    text-transform: uppercase;
+    color: white;
+}
+section p{
+    font-size: 25px;
+    word-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 1px black;
+    color: white;
+}
+.role{
+    text-align: center;
+    margin-top: 300px;
+
+
+}
